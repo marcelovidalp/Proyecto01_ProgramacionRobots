@@ -1,5 +1,5 @@
 #---------------------------------------------
-#       Importaciones
+#       Importaciones PEOOO
 #---------------------------------------------
 import pygame as pg, random as ra
 import ctypes as ct
