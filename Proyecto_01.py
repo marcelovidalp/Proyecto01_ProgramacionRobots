@@ -2,10 +2,9 @@
 #       Importaciones 
 #---------------------------------------------
 import pygame as pg, random as ra
-import ctypes as ct
 from pygame.locals import *
 
-n_RES = (480,620); pxWIDTH = pxHEIGTH = 32;
+n_RES = (512,640); pxWIDTH = pxHEIGTH = 32;
 nMOUSE_x = nMOUSE_y = 0; nMAX_COL = n_RES[0] /  pxWIDTH
 nMAX_FIL = n_RES[1] / pxHEIGTH; bGo= True
 
@@ -40,7 +39,7 @@ def mod_Mapa():
     pass
 
 #-------------------------------------------
-#       SE PINTA EL ROBOT EN LA SUPERFICIE
+#       SE PINTA EL MOUSE EN LA SUPERFICIE
 #-------------------------------------------
 def Show_Mouse():
     sWin.blit(ddt['9'],(nMOUSE_x,nMOUSE_y))
@@ -100,8 +99,8 @@ while bGo:
     click_K = pg.key.get_pressed()
     if click_K[pg.K_ESCAPE]:                   
         bGo = False
-    if click_K[pg.K_F1]:                      #modifica el mapa con F1
-        mod_Mapa()                  
+    #if click_K[pg.K_F1]:                      #modifica el mapa con F1
+        #mod_Mapa()                  
     if click_K[pg.K_F2]:                      #funcion de screenshot
         pg.image.save(sWin,'ssMAP.png') 
 
