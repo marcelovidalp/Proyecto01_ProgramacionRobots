@@ -1,40 +1,42 @@
 #---------------------------------------------
-#       Importaciones
+#       Importaciones PEOOO
 #---------------------------------------------
 import pygame as pg, random as ra
 import ctypes as ct
 from pygame.locals import *
 
-n_res = (480,620); pxWidht = pxHeigth = 32; n_robots = 1
-
-
-#--------------------------------------------
-#       Estructura.
-#--------------------------------------------
-class eRobot(ct.Structure):
-    _fields_ = [
-        #-- completaaaaaar...
-    ]
+n_RES = (480,620); pxWIDTH = pxHEIGTH = 32; n_ROBOTS = 1;
+nMOUSE_x = nMOUSE_y = 0
 
 #-------------------------------------------
 #       Carga de Archivos.
 #-------------------------------------------
-def Load_Image():
+def Load_Image(sFile,transp = False):
+    try: image = PG.image.load(sFile)
+    except PG.error,message:
+        raise SystemExit,message
+    image = image.convert()
+    if transp:
+       color = image.get_at((0,0))
+       image.set_colorkey(color,RLEACCEL)
+    return image
     #-- completaaaaaar...
-    pass
+
 
 #-------------------------------------------
 #       Init Pygame
 #-------------------------------------------
 def init_Pygame():
+    pg.init()
+    pg.mouse.set_visible(False)
+    pg.display.set_caption('Proyecto1.1 - Programacion de Robot')
+    return pg.display.set_mode(n_RES)
     #-- completaaaaaar...
-    pass
 
 #-------------------------------------------
 #       Init robot.
 #-------------------------------------------
-def init_Robot():
-    #-- completaaaaaar...
+def mod_Mapa():
     pass
 
 #-------------------------------------------
@@ -42,14 +44,7 @@ def init_Robot():
 #-------------------------------------------
 def Show_Mouse():
     #-- completaaaaaar...
-    # sWin.blit(ddt['A'],(nMx,nMy))
-    pass
-
-#--------------------------------------------
-#       MUEVE AL ROBOT
-#--------------------------------------------
-def Move_Robot():
-    #-- completaaaaaar...
+    sWin.blit(ddt['A'],(nMOUSE_x,nMOUSE_y))
     pass
 
 #---------------------------------------------
@@ -64,6 +59,19 @@ def Init_Tiles():
 #---------------------------------------------
 def Show_Map():
     pass
+#----------------------------------------------
+#       WHILE PRINCIPAL
+#----------------------------------------------
+ddt = { # Diccionario de Datos.. (Key,Value)
+       '0' : aFig[0] , '1' : aFig[1] , '2' : aFig[2], 
+       '3' : aFig[3] , '4' : aFig[4] , '5' : aFig[5], 
+       '6' : aFig[6] , '7' : aFig[7] , '8' : aFig[8], 
+       '9' : aFig[9] , 'A' : aFig[10]             
+      }
+
+matriz_Map =[
+
+            ]
 
 clock = pg.time.Clock()
 Flag = True
