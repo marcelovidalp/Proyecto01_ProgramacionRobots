@@ -7,7 +7,7 @@ from pygame.locals import *
 
 n_RES = (512,640); pxWIDTH = pxHEIGTH = 32; 
 n_MAXFIL = n_RES[1] / pxHEIGTH; n_MAXCOL = n_RES[0] / pxWIDTH;
-n_MOUSEy = n_MOUSEx = 0; fGO = True
+n_MOUSEy = n_MOUSEx = 0; bGO = True
 #--------------------------------------------------------            
 # Carga imagenes y convierte formato PyGame
 #--------------------------------------------------------
@@ -69,6 +69,7 @@ def Show_Map():
 #           MODIFICA EL MAPA
 #-------------------------------------------------
 def Mod_Map():
+    global aMapa
     aMapa = [
          [ddt[str(ra.randint(0,8))] for i in range(n_MAXCOL) ] 
           for j in range(n_MAXFIL)
@@ -93,10 +94,10 @@ aMapa = [
         ]
 
 clock = pg.time.Clock()
-while fGO:
+while bGO:
     click_k = pg.key.get_pressed()
     if click_k[pg.K_ESCAPE]:
-        fGO = False
+        bGO = False
     if click_k[pg.K_1]:
         Mod_Map()
     if click_k[pg.K_2]:
@@ -105,7 +106,7 @@ while fGO:
     ev = pg.event.get()
     for e in ev:
         if e.type == QUIT: 
-            lGo = False
+            bGO = False
         if e.type == pg.MOUSEMOTION: 
             n_MOUSEx, n_MOUSEy = e.pos 
     Show_Map()
