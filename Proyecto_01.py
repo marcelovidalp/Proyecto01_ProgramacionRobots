@@ -6,15 +6,15 @@ from pygame.locals import *
 
 n_RES = (512,640); pxWIDTH = pxHEIGTH = 32;                   # Resolucion; Pixeles ancho = Pixeles alto
 n_MAXFIL = n_RES[1] / pxHEIGTH; n_MAXCOL = n_RES[0] / pxWIDTH;# Numero Maximo Filas = resolucion y partido en los pixeles de alto 
-n_MOUSEy = n_MOUSEx = 0; bGO = True                         
+n_MOUSEy = n_MOUSEx = 0; bGO = True                           # Mouse en X e Y; Bandera para el while principal
 #--------------------------------------------------------            
 # Carga imagenes y convierte formato PyGame
 #--------------------------------------------------------
-def Load_Image(sFile,transp = False):  
+def Load_Image(sFile,transp = False):                         # No transparencia 
     try: image = pg.image.load(sFile)
     except pg.error,message:
            raise SystemExit,message
-    image = image.convert()
+    image = image.convert()                                   #convierte de imagen a pixel
     if transp:
        color = image.get_at((0,0))
        image.set_colorkey(color,RLEACCEL)
@@ -31,7 +31,7 @@ def Init_Pygame():
     return pg.display.set_mode(n_RES)
 
 #-------------------------------------------
-#       SE PINTA EL MOUSE LA SUPERFICIE
+#       SE MUESTRA EL MOUSE EN LA SUPERFICIE
 #-------------------------------------------
 def Show_Mouse():
     sWin.blit(ddt['9'],(n_MOUSEx,n_MOUSEy))
