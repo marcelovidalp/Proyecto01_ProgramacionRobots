@@ -11,13 +11,13 @@ n_MOUSEy = n_MOUSEx = 0; bGO = True                           # Mouse en X e Y; 
 # Carga imagenes y convierte formato PyGame
 #--------------------------------------------------------
 def Load_Image(sFile,transp = False):                         # No transparencia 
-    try: image = pg.image.load(sFile)
-    except pg.error,message:
+    try: image = pg.image.load(sFile)                         # Intenta cargar imgs
+    except pg.error,message:                                  # Sino imprime un mensaje de ERROR.
            raise SystemExit,message
     image = image.convert()                                   #convierte de imagen a pixel
     if transp:
-       color = image.get_at((0,0))
-       image.set_colorkey(color,RLEACCEL)
+       color = image.get_at((0,0))                            # Selecciona el color de la esquina superior derecha (0x,0y)
+       image.set_colorkey(color,RLEACCEL)                     # Setea este color como transparente.
     return image
 
 
@@ -34,8 +34,8 @@ def Init_Pygame():
 #       SE MUESTRA EL MOUSE EN LA SUPERFICIE
 #-------------------------------------------
 def Show_Mouse():
-    sWin.blit(ddt['9'],(n_MOUSEx,n_MOUSEy))
-    return 
+    sWin.blit(ddt['9'],(n_MOUSEx,n_MOUSEy))                    # Obtiene del diccionario la Figura 9 y sus cordenadas
+    return                                                     # para mostrarlas con blit.     
 
 #---------------------------------------------
 #       Init de los Tiles(imagenes)
@@ -58,9 +58,9 @@ def Init_Tiles():
 #       MUESTRA EL MAPA
 #---------------------------------------------
 def Show_Map():
-    nCol = 0 ; nFil = 0
-    for nF in range(0,n_RES[1] / pxHEIGTH): # Iter. x Filas
-        for nC in range(0,n_RES[0] / pxWIDTH): # Iter. x Colum
+    nCol = 0 ; nFil = 0                                       
+    for nF in range(0,n_RES[1] / pxHEIGTH):                   #Crea las particiones segun la resolucion, para los 32 pixeles de cada tile (FILA)     
+        for nC in range(0,n_RES[0] / pxWIDTH):                #Ahora para las columnas
             sWin.blit(aMapa[nF][nC],(nCol,nFil))
             nCol += pxWIDTH 
         nCol = 0; nFil += pxHEIGTH 
