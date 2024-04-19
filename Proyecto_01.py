@@ -2,16 +2,15 @@
 #       Importaciones 
 #---------------------------------------------
 import pygame as pg, random as ra
-import ctypes as ct
 from pygame.locals import *
 
-n_RES = (512,640); pxWIDTH = pxHEIGTH = 32; 
-n_MAXFIL = n_RES[1] / pxHEIGTH; n_MAXCOL = n_RES[0] / pxWIDTH;
-n_MOUSEy = n_MOUSEx = 0; bGO = True
+n_RES = (512,640); pxWIDTH = pxHEIGTH = 32;                   # Resolucion; Pixeles ancho = Pixeles alto
+n_MAXFIL = n_RES[1] / pxHEIGTH; n_MAXCOL = n_RES[0] / pxWIDTH;# Numero Maximo Filas = resolucion y partido en los pixeles de alto 
+n_MOUSEy = n_MOUSEx = 0; bGO = True                         
 #--------------------------------------------------------            
 # Carga imagenes y convierte formato PyGame
 #--------------------------------------------------------
-def Load_Image(sFile,transp = False):
+def Load_Image(sFile,transp = False):  
     try: image = pg.image.load(sFile)
     except pg.error,message:
            raise SystemExit,message
@@ -28,7 +27,7 @@ def Load_Image(sFile,transp = False):
 def Init_Pygame():
     pg.init()
     pg.mouse.set_visible(False) 
-    pg.display.set_caption(' Mapas 2D Robotica - By ACS')
+    pg.display.set_caption('Mapa Programacion de Robot')
     return pg.display.set_mode(n_RES)
 
 #-------------------------------------------
@@ -69,10 +68,10 @@ def Show_Map():
 #           MODIFICA EL MAPA
 #-------------------------------------------------
 def Mod_Map():
-    global aMapa
+    global aMapa                                                #accede a la Variable aMapa
     aMapa = [
-         [ddt[str(ra.randint(0,8))] for i in range(n_MAXCOL) ] 
-          for j in range(n_MAXFIL)
+         [ddt[str(ra.randint(0,8))] for i in range(n_MAXCOL) ] #Matriz donde se genera mapa al azar (LISTA DE LISTAS)
+          for j in range(n_MAXFIL)                                  
         ]
 
 
@@ -88,10 +87,10 @@ ddt = { # Diccionario de Datos.. (Key|Value)
     '6' : aFig[6] , '7' : aFig[7] , '8' : aFig[8], 
     '9' : aFig[9]           
     }
-aMapa = [
-         [ddt[str(ra.randint(0,8))] for i in range(n_MAXCOL) ] 
-          for j in range(n_MAXFIL)
-        ]
+aMapa = [               
+         [ddt[str(ra.randint(0,8))] for i in range(n_MAXCOL) ] # Genera Matriz con Tiles Randoms
+          for j in range(n_MAXFIL)                             # Primer for para columnas
+        ]                                                      # Segundo for para las Filas     
 
 clock = pg.time.Clock()
 while bGO:
