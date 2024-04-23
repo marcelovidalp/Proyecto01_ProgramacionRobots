@@ -138,7 +138,7 @@ def PyGame_Init():
     return pg.display.set_mode(nRES)
 
 #---------------------------------------------------------------------
-# Pinta la Pantalla Principal de PyGames.-
+# Pinta la Pantalla Principal de PyGame.-
 #---------------------------------------------------------------------
 def Copy_B2D():
     Wm.blit(Bm,(0,0)) #pone Bm en pantalla porque sera necesario est0

@@ -53,7 +53,7 @@ def Init_Tiles():
     aImg.append(Load_Image('T06.png')) # Tile Arena
     aImg.append(Load_Image('T07.png')) # Tile Amarillo
     aImg.append(Load_Image('T09.png')) # Tile Gris
-    aImg.append(Load_Image('T11.png',True)) # Mouse
+    aImg.append(Load_Image('T11.png',True)) # Bowser Mouse
     return aImg
 
 #----------------------------------------------
@@ -99,9 +99,9 @@ while bGO:
     click_k = pg.key.get_pressed()
     if click_k[pg.K_ESCAPE]:
         bGO = False
-    if click_k[pg.K_1]:
+    if click_k[pg.K_F1]:
         Mod_Map()
-    if click_k[pg.K_2]:
+    if click_k[pg.K_F2]:
         pg.image.save(sWin, 'Screenshot Mapa.png')
 
     ev = pg.event.get()
