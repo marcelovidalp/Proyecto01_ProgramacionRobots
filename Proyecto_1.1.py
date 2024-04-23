@@ -53,7 +53,7 @@ def Init_Tiles():
     aImg.append(Load_Image('T06.png')) # Tile Gris Claro
     aImg.append(Load_Image('T07.png')) # Tile Mostaza
     aImg.append(Load_Image('T08.png')) # Tile Celeste
-    aImg.append(Load_Image('T10.png',True)) # Mouse
+    aImg.append(Load_Image('T11.png',True)) # Mouse
     return aImg
 
 #----------------------------------------------
