@@ -44,15 +44,15 @@ def Show_Mouse():
 #---------------------------------------------
 def Init_Tiles():
     aImg = [] # Array de Tiles y Sprites
-    aImg.append(Load_Image('T00.png')) # Tile Tierra 1
-    aImg.append(Load_Image('T01.png')) # Tile Tierra 2
-    aImg.append(Load_Image('T02.png')) # Tile Piedra
-    aImg.append(Load_Image('T03.png')) # Tile Star Azul
-    aImg.append(Load_Image('T04.png')) # Tile Star Roja
-    aImg.append(Load_Image('T05.png')) # Tile Star Yellow
-    aImg.append(Load_Image('T06.png')) # Tile Gris Claro
-    aImg.append(Load_Image('T07.png')) # Tile Mostaza
-    aImg.append(Load_Image('T08.png')) # Tile Celeste
+    aImg.append(Load_Image('T00.png')) # Tile Ladrillos 
+    aImg.append(Load_Image('T01.png')) # Tile ? Mario
+    aImg.append(Load_Image('T02.png')) # Tile Rojo
+    aImg.append(Load_Image('T03.png')) # Tile Azul + Punto
+    aImg.append(Load_Image('T04.png')) # Tile Piramide Azul
+    aImg.append(Load_Image('T05.png')) # Tile Rosado
+    aImg.append(Load_Image('T06.png')) # Tile Arena
+    aImg.append(Load_Image('T07.png')) # Tile Amarillo
+    aImg.append(Load_Image('T09.png')) # Tile Gris
     aImg.append(Load_Image('T11.png',True)) # Mouse
     return aImg
 
