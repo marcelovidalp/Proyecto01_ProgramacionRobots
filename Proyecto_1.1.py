@@ -53,7 +53,7 @@ def Init_Tiles():
     aImg.append(Load_Image('T06.png')) # Tile Arena
     aImg.append(Load_Image('T07.png')) # Tile Amarillo
     aImg.append(Load_Image('T09.png')) # Tile Gris
-    aImg.append(Load_Image('T11.png',True)) # Bowser Mouse
+    aImg.append(Load_Image('T10.png',True)) # Bowser Mouse
     return aImg
 
 #----------------------------------------------
