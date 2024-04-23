@@ -149,7 +149,7 @@ while lOK:
   if e.type == QUIT:
      lOK = False
   if e.type == pg.MOUSEMOTION: nMx,nMy = e.pos
-  if e.type == pg.MOUSEBUTTONDOWN and e.button == nBTN_RIGHT: Pone_ammo_centro(nMx+60,nMy+30)
+  if e.type == pg.MOUSEBUTTONDOWN and e.button == Click_derecho: Pone_ammo_centro(nMx+60,nMy+30)
 
  Bucle_BG()
  coloca_BG()
