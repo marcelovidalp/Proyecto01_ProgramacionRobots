@@ -86,7 +86,7 @@ def Init_Gun_D():
      E_Ammo[i][1].nF = +002 # Imagen 1.-
      E_Ammo[i][1].nV = +030 # Velocidad.-
      E_Ammo[i][1].nD = +001 # Subiendo.-
-     E_Ammo[i][1].lF =  prendi_ammo # 1: Se grafica - 0: No se grafica
+     E_Ammo[i][1].lF = prendi_ammo # 1: Se grafica - 0: No se grafica
     return
 #---------------------------------------------------------------------
 # Inicializa Pygame y el mixer de sonido
