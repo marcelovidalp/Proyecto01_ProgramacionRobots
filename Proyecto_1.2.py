@@ -1,5 +1,5 @@
 from pygame.locals import *
-import pygame as pg, random as ra, time as ti, ctypes as ct
+import pygame as pg, random as ra, time as ti, ctypes as ct  
 
 nRES = (800,500) ; lOK = True ; nMAX_GUN = 20 ; prendi_ammo = 1 ; apaga_ammo = 0; 
 nBTN_RIGHT = 3  ; nMAX_X = 800
@@ -27,14 +27,15 @@ def Carga_imagen(sFile,transp = False):
     return image
 
 #---------------------------------------------------------------------
-# Inicializa PyGames.-
-
-def Pausa(): #FUNCION PARA PAUSAR EL GAME
+#FUNCION PARA PAUSAR EL GAME
+#---------------------------------------------------------------------
+def Pausa(): 
     while 1:
       e = pg.event.wait()
       if e.type in (pg.QUIT, pg.KEYDOWN):
          return
-
+#---------------------------------------------------------------------
+# Inicializa PyGames.-
 #---------------------------------------------------------------------
 def PyGame_Init():
     pg.init()
@@ -58,8 +59,8 @@ def Coloca_mapa():
 #---------------------------------------------------------------------
 def Bucle_BG():
     Ma = pg.Surface((2,500)) #2       #2
-    Ma.blit(Bm.subsurface((2,0),(2,500)),(0,0)) #
-    Bm.blit(Bm,(-2,0)) #2 #
+    Ma.blit(Bm.subsurface((2,0),(2,500)),(0,0)) #Pone el torzo de pixeles en Bm 
+    Bm.blit(Bm,(-2,0)) #2 
     Bm.blit(Ma,(798,0)) #
     return
 
@@ -81,9 +82,15 @@ def Init_Gun_D():
      E_Ammo[i][1].nY = +600 # Posicion Y
      E_Ammo[i][1].nF = +002 # Imagen 1.-
      E_Ammo[i][1].nV = +030 # Velocidad.-
-     E_Ammo[i][1].nD = 001 # Subiendo.-
+     E_Ammo[i][1].nD = +001 # Subiendo.-
      E_Ammo[i][1].lF =  prendi_ammo # 1: Se grafica - 0: No se grafica
     return
+# Inicializa Pygame y el mixer de sonido
+pg.init()
+pg.mixer.init()
+
+# Carga el sonido del disparo
+sonido_disparo = pg.mixer.Sound("Disparo.wav")
 #---------------------------------------------------------------------
 def Pone_ammo_centro(nX,nY):
     for i in range(nMAX_GUN):
@@ -92,12 +99,13 @@ def Pone_ammo_centro(nX,nY):
             E_Ammo[i][1].nX = nX
             E_Ammo[i][1].nY = nY
             E_Ammo[i][1].lF = prendi_ammo
+            sonido_disparo.play()  # Reproduce el sonido del disparo
             return
         
 
 #---------------------------------------------------------------------
 def pone_ammo(nX,nY):
-    Pone_ammo_centro(nX+60,nY+30)
+    Pone_ammo_centro(nX+70,nY+57)
     Show_Status()
     return
 
@@ -106,17 +114,17 @@ def Recarga_ammo():
     for i in range(nMAX_GUN):
         if E_Ammo[i][1].lF:
             E_Ammo[i][1].nX += E_Ammo[i][1].nV * E_Ammo[i][1].nD
-            if E_Ammo[i][1].nX >= nMAX_X: #Aqui ta toda la magia 
+            if E_Ammo[i][1].nX >= nMAX_X: 
                 E_Ammo[i][0] = prendi_ammo
-                E_Ammo[i][1].lF = apaga_ammo  # Marcar la bala
+                E_Ammo[i][1].lF = apaga_ammo  
 
     return
 #---------------------------------------------------------------------
 # While Principal del Demo.-
 #---------------------------------------------------------------------
 Wm = PyGame_Init(); pg.mouse.set_visible(False) ; Fps = pg.time.Clock()
-Bk = Carga_imagen('F3.png')      ; Nv = Carga_imagen('n1.png',True) ;
-M1 = Carga_imagen('g2.png',True) 
+Bk = Carga_imagen('F3.png')      ; Nv = Carga_imagen('F5.png',True) ;
+M1 = Carga_imagen('F4.png',True) 
 print Bk.get_rect().size,Nv.get_rect().size,M1.get_rect().size #extra->tamano de una imagen...
 Bm = pg.Surface((800,500))     ; nMy = nMx = 3
 E_Ammo = [[3,eGun_D()] for i in range(nMAX_GUN)]
@@ -130,7 +138,7 @@ while lOK:
   if e.type == QUIT:
      lOK = False
   if e.type == pg.MOUSEMOTION: nMx,nMy = e.pos
-  if e.type == pg.MOUSEBUTTONDOWN and e.button == nBTN_RIGHT: Pone_ammo_centro(nMx+60,nMy+30)
+  if e.type == pg.MOUSEBUTTONDOWN and e.button == nBTN_RIGHT: Pone_ammo_centro(nMx+70,nMy+57)
 
  Bucle_BG()
  coloca_BG()
@@ -138,7 +146,7 @@ while lOK:
  Dibuja_ammo()
  Dibuja_Nae(nMx,nMy)
  pg.display.update()
- Fps.tick(25)
+ Fps.tick(30)
  pausar = pg.key.get_pressed()
  if pausar[pg.K_SPACE]:
         Pausa()
