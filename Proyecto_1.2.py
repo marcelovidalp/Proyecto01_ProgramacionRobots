@@ -1,4 +1,3 @@
-# Importamos los módulos necesarios
 from pygame.locals import *
 import pygame as pg, random as ra, time as ti, ctypes as ct  
 
