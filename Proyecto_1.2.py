@@ -208,7 +208,7 @@ def UpDate_Balas():
 # While Principal del Demo.-
 #---------------------------------------------------------------------
 Wm = PyGame_Init(); pg.mouse.set_visible(False) ; Fps = pg.time.Clock()
-Bk = Load_Image('F1.jpeg')      ; Nv = Load_Image('n1.png',True) ;
+Bk = Load_Image('F3.png')      ; Nv = Load_Image('n1.png',True) ;
 M1 = Load_Image('g2.png',True) ; M2 = Load_Image('g2.png',True)
 print Bk.get_rect().size,Nv.get_rect().size,M1.get_rect().size #extra->tamano de una imagen...
 Bm = pg.Surface((800,500))     ; nMy = nMx = 800
