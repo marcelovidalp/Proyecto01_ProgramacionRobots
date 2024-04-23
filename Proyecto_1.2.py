@@ -130,7 +130,7 @@ while lOK:
     ev = pg.event.get()
     for e in ev:
         if e.type == QUIT:
-        lOK = False
+            lOK = False
     if e.type == pg.MOUSEMOTION: nMx,nMy = e.pos
     if e.type == pg.MOUSEBUTTONDOWN and e.button == nBTN_RIGHT: Pone_ammo_centro(nMx+60,nMy+30)
 
