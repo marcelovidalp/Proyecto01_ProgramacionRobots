@@ -3,7 +3,9 @@
 #---------------------------------------------
 import pygame as pg, random as ra
 from pygame.locals import *
-
+#---------------------------------------------
+#           CONSTANTES.
+#---------------------------------------------
 n_RES = (512,640); pxWIDTH = pxHEIGTH = 32;                   # Resolucion; Pixeles ancho = Pixeles alto
 n_MAXFIL = n_RES[1] / pxHEIGTH; n_MAXCOL = n_RES[0] / pxWIDTH;# Numero Maximo Filas = resolucion y partido en los pixeles de alto 
 n_MOUSEy = n_MOUSEx = 0; bGO = True                           # Mouse en X e Y; Bandera para el while principal
