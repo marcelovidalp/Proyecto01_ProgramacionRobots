@@ -120,26 +120,28 @@ M1 = Carga_imagen('g2.png',True)
 print Bk.get_rect().size,Nv.get_rect().size,M1.get_rect().size #extra->tamano de una imagen...
 Bm = pg.Surface((800,500))     ; nMy = nMx = 3
 E_Ammo = [[3,eGun_D()] for i in range(nMAX_GUN)]
+
 Init_Gun_D()
 Coloca_mapa()
-while lOK:
- cKey = pg.key.get_pressed()
- if cKey[pg.K_ESCAPE] : lOK = False
- ev = pg.event.get()
- for e in ev:
-  if e.type == QUIT:
-     lOK = False
-  if e.type == pg.MOUSEMOTION: nMx,nMy = e.pos
-  if e.type == pg.MOUSEBUTTONDOWN and e.button == nBTN_RIGHT: Pone_ammo_centro(nMx+60,nMy+30)
 
- Bucle_BG()
- coloca_BG()
- Recarga_ammo()
- Dibuja_ammo()
- Dibuja_Nae(nMx,nMy)
- pg.display.update()
- Fps.tick(25)
- pausar = pg.key.get_pressed()
- if pausar[pg.K_SPACE]:
+while lOK:
+    cKey = pg.key.get_pressed()
+    if cKey[pg.K_ESCAPE] : lOK = False
+    ev = pg.event.get()
+    for e in ev:
+        if e.type == QUIT:
+        lOK = False
+    if e.type == pg.MOUSEMOTION: nMx,nMy = e.pos
+    if e.type == pg.MOUSEBUTTONDOWN and e.button == nBTN_RIGHT: Pone_ammo_centro(nMx+60,nMy+30)
+
+    Bucle_BG()
+    coloca_BG()
+    Recarga_ammo()
+    Dibuja_ammo()
+    Dibuja_Nae(nMx,nMy)
+    pg.display.update()
+    Fps.tick(25)
+    pausar = pg.key.get_pressed()
+    if pausar[pg.K_SPACE]:
         Pausa()
 pg.quit

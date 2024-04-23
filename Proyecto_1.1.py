@@ -56,7 +56,7 @@ def Init_Tiles():
     aImg.append(Load_Image('T10.png',True)) # Bowser Mouse
     return aImg
 
-#----------------------------------------------
+#---------------------------------------------
 #       MUESTRA EL MAPA
 #---------------------------------------------
 def Show_Map():
@@ -78,7 +78,7 @@ def Mod_Map():
 
 
 #---------------------------------------------
-#           PARAMETROS DE FUNCIONES
+#           WHILE PRINCIPAL
 #---------------------------------------------
 sWin = Init_Pygame()
 aFig = Init_Tiles()
