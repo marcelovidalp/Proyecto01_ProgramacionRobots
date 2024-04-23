@@ -56,7 +56,7 @@ def Coloca_mapa():
     Bm.blit(Bk,(0, 0)) # 
     return
 #---------------------------------------------------------------------
-# Función para el bucle del fondo
+# Funcion para el bucle del fondo
 #---------------------------------------------------------------------
 def Bucle_BG():
     Ma = pg.Surface((2,500)) #2       #2
@@ -65,18 +65,18 @@ def Bucle_BG():
     Bm.blit(Ma,(798,0)) #
     return
 #---------------------------------------------------------------------
-# Función para dibujar la nave en pantalla
+# Funcion para dibujar la nave en pantalla
 #---------------------------------------------------------------------
 def Dibuja_Nae(nX,nY):
     Wm.blit(Nv,(nX,nY)) #pone nave en pantalla principal
     return
-# Función para dibujar las municiones
+# Funcion para dibujar las municiones
 def Dibuja_ammo():
     for i in range(Max_ammo):
      if E_Ammo[i][1].lF: Wm.blit(M1,(E_Ammo[i][1].nX,E_Ammo[i][1].nY))
     return
 #---------------------------------------------------------------------
-# Función para inicializar el armamento
+# Funcion para inicializar el armamento
 #---------------------------------------------------------------------
 def Init_Gun_D():
     for i in range(Max_ammo):
@@ -98,7 +98,7 @@ pg.mixer.init()
 #---------------------------------------------------------------------
 sonido_disparo = pg.mixer.Sound("Disparo.wav")
 #---------------------------------------------------------------------
-#Función para poner una munición 
+#Funcion para poner una municion 
 #---------------------------------------------------------------------
 def Pone_ammo_centro(nX,nY):
     for i in range(Max_ammo):
@@ -118,7 +118,7 @@ def pone_ammo(nX,nY):
     Show_Status()
     return
 #---------------------------------------------------------------------
-# Función para el movimiento y recarga de las municiones
+# Funcion para el movimiento y recarga de las municiones
 #---------------------------------------------------------------------
 def Recarga_ammo():
     for i in range(Max_ammo):
